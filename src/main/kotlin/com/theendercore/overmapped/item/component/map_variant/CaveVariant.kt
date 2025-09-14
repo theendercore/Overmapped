@@ -17,8 +17,9 @@ import org.teamvoided.creative_works.util.trash.TextOps.Companion.colorFormat
 open class CaveVariant(val yHeight: Int) : MapVariant {
     override fun getType(): MapVariantType<CaveVariant> = MapVariantType.CAVE
     override fun createVariant(player: Player) = CaveVariant(player.y.toInt())
-    override fun createMapSampler(player: Player, level: Level, map: ItemStack): MapSampler? =
-        MapSampler { yHeight }
+    override fun createMapSampler(player: Player, level: Level, map: ItemStack): MapSampler? = object : MapSampler {
+        override fun getHeight(original: Int): Int = yHeight
+    }
 
     override fun nameOverride(type: MapType): Component? =
         Component.translatable(type.lang("cave"))
