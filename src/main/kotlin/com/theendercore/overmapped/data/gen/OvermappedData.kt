@@ -1,20 +1,20 @@
-package org.teamvoided.template.data.gen
+package com.theendercore.overmapped.data.gen
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator
 import net.minecraft.registry.RegistrySetBuilder
-import org.teamvoided.template.Template.log
+import com.theendercore.overmapped.Overmapped.log
 
 @Suppress("unused")
-object TemplateData : DataGeneratorEntrypoint {
+object OvermappedData : DataGeneratorEntrypoint {
     override fun onInitializeDataGenerator(gen: FabricDataGenerator) {
         log.info("Hello from DataGen")
         val pack = gen.createPack()
 
-//        pack.addProvider(::TemplateWorldGenerator)
+//        pack.addProvider(::OvermappedWorldGenerator)
     }
 
     override fun buildRegistry(gen: RegistrySetBuilder) {
-//        gen.add(RegistryKeys.BIOME, TemplateBiomes::boostrap)
+//        gen.add(RegistryKeys.BIOME, OvermappedBiomes::boostrap)
     }
 }
