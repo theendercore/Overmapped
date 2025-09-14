@@ -5,6 +5,7 @@ import net.minecraft.util.Identifier
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import com.theendercore.overmapped.config.OvermappedConfig
+import com.theendercore.overmapped.init.OMComponents
 
 @Suppress("unused")
 object Overmapped {
@@ -17,7 +18,7 @@ object Overmapped {
     var config = ConfigApi.registerAndLoadConfig(::OvermappedConfig)
 
     fun init() {
-        log.info("Hello from Common")
+        OMComponents.init()
     }
 
     fun id(path: String) = Identifier.of(MODID, path)
