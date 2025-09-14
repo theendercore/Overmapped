@@ -5,6 +5,7 @@ import com.mojang.serialization.MapCodec
 import com.mojang.serialization.codecs.RecordCodecBuilder
 import com.theendercore.overmapped.utils.map.MapType
 import com.theendercore.overmapped.utils.map.samplers.MapSampler
+import me.fzzyhmstrs.fzzy_config.util.FcText.translatable
 import net.minecraft.ChatFormatting
 import net.minecraft.network.chat.Component
 import net.minecraft.world.entity.player.Player
@@ -22,8 +23,7 @@ open class SliceVariant(val yHeight: Int) : MapVariant {
         override fun sliceOnly(): Boolean = true
     }
 
-    override fun nameOverride(type: MapType): Component? =
-        Component.translatable(type.lang("slice"))
+    override fun nameOverride(type: MapType): Component? = translatable(type.lang("slice"))
 
     override fun appendTooltip(
         stack: ItemStack, ctx: Item.TooltipContext, list: MutableList<Component>, flags: TooltipFlag,

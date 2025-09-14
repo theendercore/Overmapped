@@ -9,6 +9,7 @@ import com.theendercore.overmapped.utils.map.samplers.MapSampler
 import net.minecraft.ChatFormatting
 import net.minecraft.core.BlockPos
 import net.minecraft.network.chat.Component
+import net.minecraft.network.chat.Component.translatable
 import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.ItemStack
@@ -27,9 +28,7 @@ open class CaveVariant(val yHeight: Int) : MapVariant {
             CaveSampler.colorOverride(this, level, originalColor, pos)
     }
 
-    override fun nameOverride(type: MapType): Component? =
-        Component.translatable(type.lang("cave"))
-
+    override fun nameOverride(type: MapType): Component? = translatable(type.lang("cave"))
     override fun appendTooltip(
         stack: ItemStack, ctx: Item.TooltipContext, list: MutableList<Component>, flags: TooltipFlag,
     ) {
