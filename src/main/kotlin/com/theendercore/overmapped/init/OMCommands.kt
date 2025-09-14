@@ -4,7 +4,8 @@ import com.mojang.brigadier.context.CommandContext
 import com.theendercore.overmapped.item.component.map_variant.CaveVariant
 import com.theendercore.overmapped.item.component.map_variant.DebugVariant
 import com.theendercore.overmapped.item.component.map_variant.NoYLockVariant
-import com.theendercore.overmapped.utils.MapVariantProcessing.setMapData
+import com.theendercore.overmapped.item.component.map_variant.SliceVariant
+import com.theendercore.overmapped.utils.map.MapVariantProcessing.setMapData
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback
 import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.commands.CommandSourceStack
@@ -28,7 +29,7 @@ object OMCommands {
         val world = src.level ?: return 0
         val player = src.player ?: return 0
 
-        val list = listOf(CaveVariant(0), NoYLockVariant, DebugVariant)
+        val list = listOf(CaveVariant(0), SliceVariant(0), NoYLockVariant, DebugVariant)
         for (variant in list) {
             val item = Items.MAP.defaultInstance
             item.setMapData(variant)

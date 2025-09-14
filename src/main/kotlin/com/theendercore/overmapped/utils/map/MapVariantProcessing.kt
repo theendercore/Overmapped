@@ -1,7 +1,8 @@
-package com.theendercore.overmapped.utils
+package com.theendercore.overmapped.utils.map
 
 import com.theendercore.overmapped.init.OMComponents.MAP_VARIANT
 import com.theendercore.overmapped.item.component.map_variant.MapVariant
+import com.theendercore.overmapped.utils.map.samplers.MapSampler
 import net.minecraft.core.component.DataComponents
 import net.minecraft.network.chat.Component
 import net.minecraft.world.entity.Entity

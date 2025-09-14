@@ -1,7 +1,7 @@
 package com.theendercore.overmapped.item.component.map_variant
 
 import com.mojang.serialization.MapCodec
-import com.theendercore.overmapped.utils.MapType
+import com.theendercore.overmapped.utils.map.MapType
 import net.minecraft.network.chat.Component
 import net.minecraft.network.chat.Component.translatable
 import net.minecraft.world.entity.player.Player

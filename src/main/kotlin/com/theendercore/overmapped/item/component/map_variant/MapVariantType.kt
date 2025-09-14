@@ -11,6 +11,7 @@ fun interface MapVariantType<P : MapVariant> {
 
     companion object {
         val CAVE = register("cave", CaveVariant.CODEC)
+        val SLICE = register("slice", SliceVariant.CODEC)
         val NO_Y_LOCK = register("no_y_lock", NoYLockVariant.CODEC)
         val DEBUG = register("debug", DebugVariant.CODEC)
 

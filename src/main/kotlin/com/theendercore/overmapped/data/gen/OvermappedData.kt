@@ -1,8 +1,8 @@
 package com.theendercore.overmapped.data.gen
 
+import com.theendercore.overmapped.Overmapped.log
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator
-import com.theendercore.overmapped.Overmapped.log
 import net.minecraft.core.RegistrySetBuilder
 
 @Suppress("unused")

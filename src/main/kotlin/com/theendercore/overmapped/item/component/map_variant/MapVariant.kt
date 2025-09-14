@@ -2,8 +2,8 @@ package com.theendercore.overmapped.item.component.map_variant
 
 import com.mojang.serialization.Codec
 import com.theendercore.overmapped.init.OMBuiltInRegistries.MAP_VARIANT_TYPE
-import com.theendercore.overmapped.utils.MapSampler
-import com.theendercore.overmapped.utils.MapType
+import com.theendercore.overmapped.utils.map.MapType
+import com.theendercore.overmapped.utils.map.samplers.MapSampler
 import net.minecraft.network.chat.Component
 import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.player.Player

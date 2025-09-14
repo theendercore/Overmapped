@@ -1,4 +1,4 @@
-package com.theendercore.overmapped.utils
+package com.theendercore.overmapped.utils.map
 
 import com.theendercore.overmapped.Overmapped
 

@@ -1,7 +1,7 @@
 package com.theendercore.overmapped.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import com.theendercore.overmapped.utils.MapVariantProcessing;
+import com.theendercore.overmapped.utils.map.MapVariantProcessing;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;

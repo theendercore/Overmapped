@@ -4,8 +4,8 @@ import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.Share;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
-import com.theendercore.overmapped.utils.MapSampler;
-import com.theendercore.overmapped.utils.MapVariantProcessing;
+import com.theendercore.overmapped.utils.map.samplers.MapSampler;
+import com.theendercore.overmapped.utils.map.MapVariantProcessing;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
@@ -66,7 +66,7 @@ public abstract class MapItemMixin {
     @ModifyExpressionValue(method = "update", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getMinBuildHeight()I", ordinal = 1))
     public int maxBuildHeight(int value, @Share("map_sampler") LocalRef<MapSampler> heightSampler) {
         var sampler = heightSampler.get();
-        if (sampler != null && sampler.lockLayer()) {
+        if (sampler != null && sampler.sliceOnly()) {
             return sampler.getHeight(value);
         }
         return value;
@@ -75,7 +75,7 @@ public abstract class MapItemMixin {
     @ModifyExpressionValue(method = "update", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;getMinBuildHeight()I", ordinal = 2))
     public int maxBuildHeight2(int value, @Share("map_sampler") LocalRef<MapSampler> heightSampler) {
         var sampler = heightSampler.get();
-        if (sampler != null && sampler.lockLayer()) {
+        if (sampler != null && sampler.sliceOnly()) {
             return sampler.getHeight(value);
         }
         return value;

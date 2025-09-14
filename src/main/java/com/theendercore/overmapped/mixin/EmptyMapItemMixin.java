@@ -2,7 +2,7 @@ package com.theendercore.overmapped.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
-import com.theendercore.overmapped.utils.MapVariantProcessing;
+import com.theendercore.overmapped.utils.map.MapVariantProcessing;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.EmptyMapItem;
 import net.minecraft.world.item.ItemStack;
