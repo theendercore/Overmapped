@@ -3,7 +3,11 @@
   "minVersion": "0.8",
   "package": "com.theendercore.overmapped.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [],
+  "mixins": [
+    "EmptyMapItemMixin",
+    "ItemMixin",
+    "MapItemMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

@@ -1,12 +1,13 @@
 package com.theendercore.overmapped.init
 
 import com.theendercore.overmapped.Overmapped.id
+import com.theendercore.overmapped.item.component.MapVariantComponent
 import net.minecraft.core.Registry
 import net.minecraft.core.component.DataComponentType
 import net.minecraft.core.registries.BuiltInRegistries
 
 object OMComponents {
-//    val SPELL = register("spell") { it.codec(SpellComponent.CODEC).build() }
+    val MAP_VARIANT = register("map_variant") { it.persistent(MapVariantComponent.CODEC).build() }
 
 
     fun init() {}
