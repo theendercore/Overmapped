@@ -1,11 +1,11 @@
 package com.theendercore.overmapped
 
 import me.fzzyhmstrs.fzzy_config.api.ConfigApi
-import net.minecraft.util.Identifier
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import com.theendercore.overmapped.config.OvermappedConfig
 import com.theendercore.overmapped.init.OMComponents
+import net.minecraft.resources.ResourceLocation
 
 @Suppress("unused")
 object Overmapped {
@@ -21,5 +21,5 @@ object Overmapped {
         OMComponents.init()
     }
 
-    fun id(path: String) = Identifier.of(MODID, path)
+    fun id(path: String): ResourceLocation = ResourceLocation.fromNamespaceAndPath(MODID, path)
 }
