@@ -1,42 +1,31 @@
 package com.theendercore.overmapped.item.component.map_variant
 
 import com.mojang.serialization.Codec
-import com.theendercore.overmapped.Overmapped.MODID
 import com.theendercore.overmapped.init.OMBuiltInRegistries.MAP_VARIANT_TYPE
-import com.theendercore.overmapped.init.OMComponents.MAP_VARIANT
-import com.theendercore.overmapped.item.component.MapVariantComponent
-import com.theendercore.overmapped.utils.HeightSampler
+import com.theendercore.overmapped.utils.MapSampler
+import com.theendercore.overmapped.utils.MapType
 import net.minecraft.network.chat.Component
+import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.TooltipFlag
 import net.minecraft.world.level.Level
+import net.minecraft.world.level.saveddata.maps.MapItemSavedData
 
 interface MapVariant {
     fun getType(): MapVariantType<*>
-    fun addData(player: Player, openMap: ItemStack)
-    fun createHeightSampler(player: Player, level: Level, map: ItemStack): HeightSampler?
-    fun nameOverride(type: MapType): Component?
-    fun appendTooltip(
-        stack: ItemStack, ctx: Item.TooltipContext, list: MutableList<Component>, tooltipFlag: TooltipFlag,
-    )
+    fun createVariant(player: Player): MapVariant
+
+    fun createMapSampler(player: Player, level: Level, map: ItemStack): MapSampler? = null
+    fun nameOverride(type: MapType): Component? = null
+    fun appendTooltip(stack: ItemStack, ctx: Item.TooltipContext, list: MutableList<Component>, flags: TooltipFlag) =
+        Unit
+
+    fun hasCustomMapUpdates(): Boolean = false
+    fun customMapUpdate(level: Level, entity: Entity, mapData: MapItemSavedData) = Unit
 
     companion object {
         val CODEC: Codec<MapVariant> = MAP_VARIANT_TYPE.byNameCodec().dispatch(MapVariant::getType) { it.codec() }
-        fun ItemStack.setMapData(data: MapVariant) = set(MAP_VARIANT, MapVariantComponent(data))
-
-        @JvmStatic
-        fun ItemStack.getMapData() = get(MAP_VARIANT)?.variant
-        fun ItemStack.createHeightSampler(player: Player, level: Level): HeightSampler? =
-            getMapData()?.createHeightSampler(player, level, this)
-
-        enum class MapType {
-            EMPTY,
-            FULL;
-
-            fun lang(variant: String) = "item.$MODID.$variant.${mapName()}"
-            fun mapName() = if (this == FULL) "filled_map" else "map"
-        }
     }
 }

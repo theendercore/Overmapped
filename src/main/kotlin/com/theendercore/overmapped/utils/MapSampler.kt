@@ -1,5 +1,5 @@
 package com.theendercore.overmapped.utils
 
-fun interface HeightSampler {
+fun interface MapSampler {
     fun getHeight(original: Int): Int
 }
