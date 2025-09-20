@@ -16,7 +16,7 @@ object NoYLockVariant : MapVariant {
     override fun getType(): MapVariantType<NoYLockVariant> = MapVariantType.NO_Y_LOCK
     override fun createVariant(player: Player) = NoYLockVariant
     override fun nameOverride(type: MapType): Component? = translatable(type.lang("no_y_lock"))
-    override fun createMapSampler(player: Player, level: Level, map: ItemStack): MapSampler? = object : MapSampler {
+    override fun createMapSampler(player: Player, level: Level, map: ItemStack): MapSampler = object : MapSampler {
         override fun getHeight(original: Int): Int = player.y.toInt()
         override fun sliceOnly(): Boolean = false
         override fun colorOverride(level: Level, originalColor: MapColor, pos: BlockPos): MapColor? =

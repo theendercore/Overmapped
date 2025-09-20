@@ -19,7 +19,7 @@ import net.minecraft.world.level.material.MapColor
 import org.teamvoided.creative_works.util.trash.TextOps.Companion.colorFormat
 
 open class CaveVariant(val yHeight: Int) : MapVariant {
-    override fun getType(): MapVariantType<CaveVariant> = MapVariantType.CAVE
+    override fun getType(): MapVariantType<*> = MapVariantType.CAVE
     override fun createVariant(player: Player) = CaveVariant(player.y.toInt())
     override fun createMapSampler(player: Player, level: Level, map: ItemStack): MapSampler? = object : MapSampler {
         override fun getHeight(original: Int): Int = yHeight
@@ -33,7 +33,7 @@ open class CaveVariant(val yHeight: Int) : MapVariant {
         stack: ItemStack, ctx: Item.TooltipContext, list: MutableList<Component>, flags: TooltipFlag,
     ) {
         if (!flags.isAdvanced) return
-        list.add(Component.translatable("Y level: $yHeight", yHeight).colorFormat(true, ChatFormatting.GRAY))
+        list.add(translatable("Y level: %s", yHeight).colorFormat(true, ChatFormatting.GRAY))
     }
 
     override fun hashCode(): Int = yHeight

@@ -29,7 +29,7 @@ open class SliceVariant(val yHeight: Int) : MapVariant {
         stack: ItemStack, ctx: Item.TooltipContext, list: MutableList<Component>, flags: TooltipFlag,
     ) {
         if (!flags.isAdvanced) return
-        list.add(Component.translatable("Slice y level: $yHeight", yHeight).colorFormat(true, ChatFormatting.GRAY))
+        list.add(Component.translatable("Slice y level: %s", yHeight).colorFormat(true, ChatFormatting.GRAY))
     }
 
     override fun hashCode(): Int = yHeight

@@ -24,7 +24,7 @@ object MapVariantProcessing {
     fun getMapName(stack: ItemStack): Component? {
         val type = when (stack.item) {
             is EmptyMapItem -> MapType.EMPTY
-            is MapItem -> MapType.EMPTY
+            is MapItem -> MapType.FULL
             else -> return null
         }
 
